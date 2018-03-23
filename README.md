@@ -52,12 +52,12 @@ This is a starter template for [Serverless](https://serverless.com/framework/) p
 
   ```
   # Use serverless-webpack plugin to transpile ES6/E
-    ```bash
+  ```bash
                 **inside the yml file**
             plugins:
                 - serverless-webpack
         
-    ```
+  ```
 # Use serverless-webpack with Async/await
  ```bash
         var lambda2 = async (event,context,cb) =>{
@@ -73,8 +73,8 @@ This is a starter template for [Serverless](https://serverless.com/framework/) p
         "presets": ["env", "stage-3"]
  ```
 # Use serverless-webpack with MongoDB
-    ```bash
+ ```bash
         environment: 
             MONGO_URL: "mongodb://userdb:userdb@ds163718.mlab.com:63718/cferrerdb"  
-    ```
+ ```
   
