@@ -51,30 +51,27 @@ This is a starter template for [Serverless](https://serverless.com/framework/) p
   
 
   ```
-
   # Use serverless-webpack plugin to transpile ES6/E
-    
     ```bash
-        **inside the yml file**
-      plugins:
-        - serverless-webpack
+                **inside the yml file**
+            plugins:
+                - serverless-webpack
         
     ```
 # Use serverless-webpack with Async/await
-    ```bash
-    var lambda2 = async (event,context,cb) =>{
+ ```bash
+        var lambda2 = async (event,context,cb) =>{
 
-        var tasksData = await getTaskApi();
-         cb(null, {data:tasksData});
-    }
-    ```
- 
-# Use serverless-webpack with .babelrc
-    ```bash
+            var tasksData = await getTaskApi();
+            cb(null, {data:tasksData});
+        }
+ ```
+ # Use serverless-webpack with .babelrc
+ ```bash  
          **inside the .babelrc file**
         "plugins": ["transform-runtime"],
         "presets": ["env", "stage-3"]
-    ```
+ ```
 # Use serverless-webpack with MongoDB
     ```bash
         environment: 
