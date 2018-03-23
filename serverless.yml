@@ -27,6 +27,9 @@ provider:
   runtime: nodejs6.10
   stage: dev
   region: us-east-2
+  timeout: 45
+  environment: 
+      MONGO_URL: "mongodb://userdb:userdb@ds163718.mlab.com:63718/cferrerdb"
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -50,7 +53,7 @@ provider:
 # you can define service wide environment variables here
 #  environment:
 #    variable1: value1
-
+    
 # you can add packaging information here
 #package:
 #  include:
@@ -62,10 +65,19 @@ provider:
 
 functions:
   app:
-    handler: handler.handler
+    handler: handler.app
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+       - http:
+          path: api/tasks
+          method: get
+    
+  post:
+    handler: handler.post
+    events:
+       - http:
+          path: api/task
+          method: post
+  
          
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
@@ -101,12 +113,12 @@ functions:
 #      variable2: value2
 
 # you can add CloudFormation resource templates here
-#resources:
-#  Resources:
-#    NewResource:
-#      Type: AWS::S3::Bucket
-#      Properties:
-#        BucketName: my-new-bucket
+resources:
+  Resources:
+    NewResource:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:service}-${self:provider.stage}
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
