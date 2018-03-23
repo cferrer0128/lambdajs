@@ -1,7 +1,7 @@
 'use strict';
 const fetch = require('node-fetch')
 const request = require("request");
-const url = "https://myionic.azurewebsites.net/";
+//const url = "https://myionic.azurewebsites.net/";
 const serverless = require('serverless-http');
 const express = require('express')
 const app = express()
