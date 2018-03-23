@@ -42,19 +42,36 @@ This is a starter template for [Serverless](https://serverless.com/framework/) p
   ```bash
   serverless invoke -f hello -l
   ```
-7. **in this project:**
+# 7. **in this project:**
   # Use serverless-webpack plugin to transpile ES6/ES7
    ```bash
-   cd into the folder
+   git clone https://github.com/cferrer0128/lambdajs.git lambdajs
+   cd into the folder lambdajs
    then npm install
-  plugins:
-  - serverless-webpack
+  
+
   ```
- # Use serverless-webpack with babel
+# Use serverless-webpack with Async/await
     ```bash
+    var lambda2 = async (event,context,cb) =>{
+
+        var tasksData = await getTaskApi();
+         cb(null, {data:tasksData});
+    }
+    ```
+ # Use serverless-webpack with babel
+    
+    ```bash
+        **inside the yml file**
+      plugins:
+        - serverless-webpack
+        
+    ```
+# Use serverless-webpack with MongoDB
+    ```bash
+         **inside the .babelrc file**
         "plugins": ["transform-runtime"],
         "presets": ["env", "stage-3"]
-        async/await functions
     ```
 # Use serverless-webpack with MongoDB
     ```bash
