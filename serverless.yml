@@ -67,10 +67,15 @@ functions:
   app:
     handler: handler.app
     events:
-       - http:
+      - http:
           path: api/tasks
           method: get
-    
+  put:
+    handler: handler.put
+    events:
+       - http:
+          path: api/task
+          method: put    
   post:
     handler: handler.post
     events:
@@ -118,7 +123,7 @@ resources:
     NewResource:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${self:service}-${self:provider.stage}
+        BucketName: ${self:service}-${self:provider.stage}-bucket
 #  Outputs:
 #     NewOutput:
 #       Description: "Description for the output"
