@@ -12,7 +12,8 @@
     "mongodb": "^3.0.4",
     "node-fetch": "^2.1.1",
     "request": "^2.83.0",
-    "serverless-http": "^1.5.3"
+    "serverless-http": "^1.5.3",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -27,9 +28,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r babel-register -r babel-polyfill handler.js"
+    "start": "node -r babel-register -r babel-polyfill handler.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "snyk": true
 }
